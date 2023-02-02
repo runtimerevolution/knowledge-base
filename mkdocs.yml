@@ -1,0 +1,23 @@
+site_name: Runtime Revolution Knowledge Base
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+  icon:
+    repo: fontawesome/brands/github
+
+repo_url: https://github.com/daniel-carvalho-runtime-revolution/teste.git
+repo_name: daniel-carvalho-runtime-revolution/teste
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
