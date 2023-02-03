@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Home","text":"<p>index</p>"},{"location":"node/","title":"knowledge-base node","text":""},{"location":"python/","title":"knowledge-base python","text":""},{"location":"rails/","title":"knowledge-base rails","text":""}]}
