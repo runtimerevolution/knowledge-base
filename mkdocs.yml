@@ -7,8 +7,8 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-repo_url: https://github.com/daniel-carvalho-runtime-revolution/teste.git
-repo_name: daniel-carvalho-runtime-revolution/teste
+repo_url: https://github.com/runtimerevolution/knowledge-base.git
+repo_name: runtimerevolution/knowledge-base
 
 markdown_extensions:
   - pymdownx.superfences:
