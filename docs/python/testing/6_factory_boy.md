@@ -1,6 +1,6 @@
 # Factory boy
 
-https://factoryboy.readthedocs.io/en/stable/index.html
+[https://factoryboy.readthedocs.io/en/stable/index.html](https://factoryboy.readthedocs.io/en/stable/index.html)
 
 As a fixtures replacement tool, it aims to replace static, hard to maintain fixtures with easy-to-use factories for
 complex objects.

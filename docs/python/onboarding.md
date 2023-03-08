@@ -24,17 +24,17 @@ The onboarding process consists on the creation of the following sections as Git
 3. A pull request must include: README.md and a requirements.txt file with the installed python packages
 4. Then get familiar with the language:
 
-- [Basics](https://python.swaroopch.com/basics.html)
-- [Operators and Expressions](https://python.swaroopch.com/op_exp.html)
-- [Control Flow](https://python.swaroopch.com/control_flow.html)
-- [Functions](https://python.swaroopch.com/functions.html)
-- [Modules](https://python.swaroopch.com/modules.html)
-- [Data Structures](https://python.swaroopch.com/data_structures.html)
-- [Object Oriented Programming](https://python.swaroopch.com/oop.html)
-- [Input and Output](https://python.swaroopch.com/io.html)
-- [Exceptions](https://python.swaroopch.com/exceptions.html)
-- [Map, Filter, Reduce](https://www.learnpython.org/en/Map,_Filter,_Reduce)
-- [More](https://python.swaroopch.com/more.html)
+    - [Basics](https://python.swaroopch.com/basics.html)
+    - [Operators and Expressions](https://python.swaroopch.com/op_exp.html)
+    - [Control Flow](https://python.swaroopch.com/control_flow.html)
+    - [Functions](https://python.swaroopch.com/functions.html)
+    - [Modules](https://python.swaroopch.com/modules.html)
+    - [Data Structures](https://python.swaroopch.com/data_structures.html)
+    - [Object Oriented Programming](https://python.swaroopch.com/oop.html)
+    - [Input and Output](https://python.swaroopch.com/io.html)
+    - [Exceptions](https://python.swaroopch.com/exceptions.html)
+    - [Map, Filter, Reduce](https://www.learnpython.org/en/Map,_Filter,_Reduce)
+    - [More](https://python.swaroopch.com/more.html)
 Challenge yourself 💪. Do a [code challenge](https://leetcode.com/problems/two-sum/) in Python3.
 
 ---
