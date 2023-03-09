@@ -1,5 +1,7 @@
 # knowledge-base runtime revolution
 
+Available at [https://runtimerevolution.github.io/knowledge-base/](https://runtimerevolution.github.io/knowledge-base/)
+
 ## Setup
 
 This project uses Poetry [https://python-poetry.org/](https://python-poetry.org/), make sure it's present on your system.
