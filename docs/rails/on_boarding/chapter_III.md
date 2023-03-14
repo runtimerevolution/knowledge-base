@@ -1,7 +1,6 @@
 
 # Chapter III
-
-(avr. time for this chapter: 3 to 4 days)
+`(avr. time for this chapter: 3 to 4 days)`
 
 Moving on from the theoretical part, we move on to the practical part.
 

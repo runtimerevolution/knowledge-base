@@ -1,7 +1,6 @@
 
 # Chapter IV
-
-(avr. time for this chapter: 3 days)
+`(avr. time for this chapter: 3 days)`
 
 This will be the last topic that closes onBoarding.
 The topics are broader, which will force you to think better before starting to implement. Following the previous exercise, here's your challenge

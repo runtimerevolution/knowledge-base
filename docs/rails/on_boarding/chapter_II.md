@@ -1,7 +1,6 @@
 
 # Chapter II
-
-(avr. time for this chapter: 2 days)
+`(avr. time for this chapter: 2 days)`
 
 Ruby on Rails (simplified as Rails) is a server-side web application framework written in Ruby under the MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. 
 
