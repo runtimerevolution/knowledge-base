@@ -3,11 +3,10 @@
 
 (avr. time for this chapter: 3 days)
 
-You'll find several topics listed below, with very little detail. The details do not exist on purpose, it is in everyone's interest to understand how you can infer, through a practical case, the same thing that would happen in real life with a client. As an engineer you know how to think, and if you have doubts you can always do what you would do in a real project, discuss ideas. You can also design your solution before trying it out.
+This will be the last topic that closes onBoarding.
+The topics are broader, which will force you to think better before starting to implement. Following the previous exercise, here's your challenge
 
-These topics are still the most basic so you don't need to build or model a very elaborate system, if you notice they are linked to the course you just saw in the previous chapter  
-
-***So, let's code***
+***So, let's finish this***
 
 # Let's do some basic code
 
