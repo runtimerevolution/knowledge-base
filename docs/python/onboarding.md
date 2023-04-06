@@ -177,7 +177,7 @@ requested date
 
 ### Acceptance Criteria
 
-- Design the model entity relation for this project
+- Design the model entity relation for this project:
     - use [Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html), this is supported out of the box by Github's Markdown
 - Design the API endpoints, including:
     - path
