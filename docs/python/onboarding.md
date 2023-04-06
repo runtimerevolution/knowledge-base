@@ -173,7 +173,7 @@ This project consists on the development of a Rest api to manage/views: Authors,
 > Optional: The App should also include a page to view some basic statistics, like the number of Books per Author, or the number of Books per Category.
 
 Optional: To complicate the models. A book can have many instances and users can request an instance to take home with a
-requested date
+requested date.
 
 ### Acceptance Criteria
 
