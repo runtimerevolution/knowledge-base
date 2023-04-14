@@ -14,11 +14,15 @@ These topics are still the most basic so you don't need to build or model a very
 
 > create a simple rails application MVC
 > open a git repository and give access to your tutor
-> IF you have time deploy it, you can choose the platform (render.com, heroku.com, etc ...)
+> IF you have time deploy it, you can choose the platform (render.com, heroku.com)
 
- - List item
+Let's build an application from scratch. The application will have as its theme the sale of ebooks online. A virtual store where you will have sellers and buyers. You won't have to implement the cart's logic, but some functionalities related to some actions that are performed when buying an item.
+
+As previously mentioned, all the points below are generic, it is up to the developer who develops to build an architecture consistent with the proposed objective
+
+ - List item (ebooks)
  - Add navigation menu with ebook and users
- - Create CRUD for the user
+ - Create CRUD for the user (seller or a buyer)
  - Update Status of the user (enable or disable) 
  - Create CRUD for Ebooks
  - Update Status for the Ebook (Draft, Pending, Live)
