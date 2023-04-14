@@ -15,10 +15,11 @@ The idea is to pay attention to the chapter you are listening to and repeat it i
 
 # Udemy Course
 
+Currently, we use this course: https://www.udemy.com/course/the-complete-ruby-on-rails-developer-course
 > get your credentials with your tutor.
 
 
--   Rails basics Instroduction-> Chapter 2 (1st video)
+-   Rails basics Introduction-> Chapter 2 (1st video)
 -   Model, View, Controller and Rails App Structure (Chapter 3)
 -   Root route, controller, more MVC and say 'Hello World!' (Chapter 3)
 -   Structure of a Rails application (Chapter 3)

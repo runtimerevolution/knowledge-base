@@ -10,15 +10,16 @@ In this chapter the objective is to look at the world of ruby, which will serve 
 
 The idea is to familiarize yourself with the basics.
 
-***So, let's do some code***
+***So, let's code***
 
 
 # Let's Start
 
 ## Ruby in Twenty Minutes (quick start)
 
-This is a small Ruby tutorial that should take no more than 20 minutes to complete. It makes the assumption that you already have Ruby installed. if not checkout this link (NOTE: add link)
-[https://www.ruby-lang.org/en/documentation/quickstart/](https://www.ruby-lang.org/en/documentation/quickstart/)
+This is a small Ruby tutorial that should take no more than 20 minutes to complete: [https://www.ruby-lang.org/en/documentation/quickstart/](https://www.ruby-lang.org/en/documentation/quickstart/) 
+
+It makes the assumption that you already have Ruby installed. If not, checkout this link: [https://www.ruby-lang.org/en/documentation/installation/] (https://www.ruby-lang.org/en/documentation/installation/)
 
 ## Ruby Koans 
 

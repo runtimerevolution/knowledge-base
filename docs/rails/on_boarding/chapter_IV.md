@@ -15,7 +15,7 @@ The topics are broader, which will force you to think better before starting to 
 - Store user image profile
 - Store ebook image cover profile
 - Implement Authentication  **without devise**. sign up and sign in
-- on Successfully Login redirect to same point where you and not the root url
+- on Successfully Login redirect to same point where you were and not the root url
 - Force to update password every 6 months
 - send an welcome mail when a new user is registered
 - Implement a Tags System
