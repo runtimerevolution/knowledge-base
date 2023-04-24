@@ -184,4 +184,10 @@ requested date.
     - request
     - response
 
-Once the design/planning part has been taken care and agreed, please create tickets/issues for each of the tasks.
+Once the design/planning part has been taken care of and agreed upon, please create tickets/issues for each of the tasks. Having those created, their commits should respect the nomenclature used in the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/):
+
+- if it's a task: `task/<number_of_the_ticket>/small-description`;
+- if it's a bug: `bugfix/<number_of_the_ticket>/small-description`;
+- if it's a release: `chore/<number_of_the_ticket>/small-description`.
+
+> Read the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) documentation to check more examples and details of each commit type (i.e body, footer, etc).
