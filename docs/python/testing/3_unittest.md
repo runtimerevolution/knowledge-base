@@ -197,7 +197,7 @@ any file whose name begins with test, automatically build a test suite out of th
 
 ### Django models in tests
 
-If your tests rely on database access such as creating or querying models, be sure to create your test classes as 
+If your tests rely on database access such as creating or querying models, be sure to create your test classes as subclasses of **django.test.TestCase** rather than **unittest.TestCase**.
 subclasses of **django.test.TestCase** rather than **unittest.TestCase**.
 
 ### Test execution order
