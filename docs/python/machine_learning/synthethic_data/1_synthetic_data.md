@@ -1,22 +1,18 @@
 # Introduction
 
-In this section we'll explore the generation of synthetic data using SDV library. The SDV offers multiple machine learning models ranging from classical statistical methods (Copulas) to deep learning methods (GANs). Synthetic Data is very important for a number of reasons:
+In this section we'll explore the generation of synthetic data using [SDV library](https://docs.sdv.dev/sdv/). The SDV offers multiple machine learning models ranging from classical statistical methods (Copulas) to deep learning methods (GANs). Synthetic Data is very important for a number of reasons:
+
 - Software Testing
 - Access Expansion
 - Pilot New Products
 - Augmented Data
 - Plan scenarios
 
-## Installation
+## Requirements
 
-To install we should use Poetry and Pyenv. The version of python should be >= 3.10 and < 3.11. For the analysis done on this library we used Python 3.10.9.
+To install the SDV library we should be working with Python >= 3.10 and < 3.11. For the analysis done on this library we used Python 3.10.9.
 ```
-pyenv install 3.10.9
-curl -sSL https://install.python-poetry.org | python3 -
-
-# In this case we already had a project directory
-poetry init
-poetry env use ~/.pyenv/versions/3.10.9/bin/python
+pip install sdv
 ```
 
 ## Flow
@@ -39,7 +35,7 @@ flowchart TD
 ```
 
 ### Load Data
-At first we need to load the data. If it stored in a csv format we can use the **[load_csvs](https://docs.sdv.dev/sdv/single-table-data/data-preparation/loading-data#load_csvs)** method. Otherwise since sdv uses a Pandas' dataframe we can use the Pandas' library to load the data.
+At first we need to load the data. If it's stored in a csv format we can use the built-in **[load_csvs](https://docs.sdv.dev/sdv/single-table-data/data-preparation/loading-data#load_csvs)** method. This method reads all the csv's available in that particular folder.
 
 
 ```
@@ -49,6 +45,8 @@ from sdv.datasets.local import load_csvs
 datasets = load_csvs(folder_name='my_folder/')
 ```
 
+Since SDV uses Pandas' dataframe under the hood, we can use it directly to load the data. However
+
 ```
 import pandas as pd
 
@@ -57,7 +55,8 @@ data = pd.read_excel('file://localhost/path/to/table.xlsx')
 
 ### Create Metadata
 Metadata is an object which contains the skeleton of our data, mainly types of columns, keys, etc.
-On a second step we should create this metadata based on the data loaded previously. For this we have a method in sdv library called **[detect_from_dataframe](https://docs.sdv.dev/sdv/single-table-data/data-preparation/single-table-metadata-api#auto-detect-metadata)**. In this step is where we tell sdv whether we are trying to generate multitable or singletable metadata.
+On a second step we should create this metadata based on the data loaded previously. For this we have a method in SDV library called **[detect_from_dataframe](https://docs.sdv.dev/sdv/single-table-data/data-preparation/single-table-metadata-api#auto-detect-metadata)**. 
+At this stage we must tell SDV whether we are trying to generate a multi table or single table metadata. 
 ```
 from sdv.metadata import SingleTableMetadata
 
@@ -70,6 +69,7 @@ After this, a metadata object is created. It's strongly advised that this object
 
 For these methods we have a parameter called **[sdtype](https://docs.sdv.dev/sdv/reference/metadata-spec/sdtypes)** which sets the type of the column. These types are provided from the **[Faker Python Library](https://faker.readthedocs.io/en/master/providers.html)**.
 The most common ones are the following:
+
 - **Boolean**: Sdtype boolean describes columns that contain TRUE or FALSE values and may contain some missing data.
 - **Categorical**: Sdtype categorical describes columns that contain distinct categories. The defining aspect of a categorical column is that only the values that appear in the real data are valid.
 The categories may be ordered or unordered.
@@ -98,6 +98,7 @@ metadata_obj = SingleTableMetadata.load_from_dict(metadata_dict)
 The synthesizer is the tool that uses machine learning to understand your data and create synthetic data based on it.
 There are several different models of synthesizers.
 For single tables we have:
+
 - [GaussianCopulaSynthesizer](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/gaussiancopulasynthesizer)
   - [Fast ML Preset](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/fast-ml-preset) which is a preset that uses the GaussianCopulaSynthesizer in background.
 - [CTGANSynthesizer](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/ctgansynthesizer)
@@ -147,10 +148,10 @@ synthetic_data = custom_synthesizer.sample_from_conditions(
 )
 ```
 
-Now that we know the flow of usage of the sdv library, it's important to mention that all of these steps have more options to them not shown here. For those you can check the **[official documentation](https://docs.sdv.dev/sdv/)**.
+Now that we know the flow of usage of the SDV library, it's important to mention that all of these steps have more options to them not shown here. For those you can check the **[official documentation](https://docs.sdv.dev/sdv/)**.
 
 ## Evaluation
-One other tool that the sdv library provides is an **[evaluation module](https://docs.sdv.dev/sdv/single-table-data/evaluation)** which we can use to compare the newly synthetic data with the real data. This is very helpful in order to check the quality of our synthetic data and decide whether to use it or not.
+One other tool that the SDV library provides is an **[evaluation module](https://docs.sdv.dev/sdv/single-table-data/evaluation)** which we can use to compare the newly synthetic data with the real data. This is very helpful in order to check the quality of our synthetic data and decide whether to use it or not.
 
 ## Metrics
 
@@ -174,4 +175,4 @@ One other tool that the sdv library provides is an **[evaluation module](https:/
 
 
 ## Conclusion
-There are now 2 notebooks available that test the single table and multi table usage of the sdv library.
+There are now 2 notebooks available that test the single table and multi table usage of the SDV library.
