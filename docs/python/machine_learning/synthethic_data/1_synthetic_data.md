@@ -8,6 +8,27 @@ In this section we'll explore the generation of synthetic data using [SDV librar
 - Augmented Data
 - Plan scenarios
 
+## Personal Identifiable Information (PII)
+One main issue with data is its sensitivity. So we can define data columns as PII - **Personal Identifiable Information** - or non-PII. According to the University of Pittsburgh:
+
+> Personally Identifiable Information (PII) includes:
+> 
+> 1. Any information that can be used to distinguish or trace an individual’s identity, such as name, social security number, date and place of birth, mother’s maiden name, or biometric records; and
+> 2. Any other information that is linked or linkable to an individual, such as medical, educational, financial, and employment information.
+>
+> Examples of PII include, but are not limited to:
+> 
+> - Name: full name, maiden name, mother’s maiden name, or alias
+> - Personal identification numbers: social security number (SSN), passport number, driver’s license number, taxpayer identification number, patient identification number, financial account number, or credit card number
+> - Personal address information: street address, or email address
+> - Personal telephone numbers
+> - Personal characteristics: photographic images (particularly of face or other identifying characteristics), fingerprints, or handwriting
+> - Biometric data: retina scans, voice signatures, or facial geometry
+> - Information identifying personally owned property: VIN number or title number
+> - Asset information: Internet Protocol (IP) or Media Access Control (MAC) addresses that consistently link to a particular person
+>
+>[Source](https://www.technology.pitt.edu/help-desk/how-to-documents/guide-identifying-personally-identifiable-information-pii#:~:text=Personal%20identification%20numbers%3A%20social%20security,Personal%20telephone%20numbers)
+
 ## Requirements
 
 To install the SDV library we should be working with Python >= 3.10 and < 3.11. For the analysis done on this library we used Python 3.10.9.
@@ -45,7 +66,7 @@ from sdv.datasets.local import load_csvs
 datasets = load_csvs(folder_name='my_folder/')
 ```
 
-Since SDV uses Pandas' dataframe under the hood, we can use it directly to load the data. However
+Since SDV uses Pandas' dataframe under the hood, we can use it directly to load the data.
 
 ```
 import pandas as pd
@@ -155,6 +176,8 @@ One other tool that the SDV library provides is an **[evaluation module](https:/
 
 ## Metrics
 
+To study the performance of this library methods (fit - to train - and sample - to create data) we used a Jupyter Notebook on VSCode. The results are the following:
+
 | Synthesizer model | Method | Num of rows used/generated | Time |
 | ----------- | ----------- | ----------- | ----------- |
 | Gaussian - FastML | fit | 5000 | 0.1s |
@@ -174,5 +197,5 @@ One other tool that the SDV library provides is an **[evaluation module](https:/
 | CopulaGAN  | sample | 1000000 | 28.3s |
 
 
-## Conclusion
-There are now 2 notebooks available that test the single table and multi table usage of the SDV library.
+## Notebooks
+There are now 2 notebooks available that test the [single table](2_single_table.ipynb) and [multi table](3_multi_table.ipynb) usage of the SDV library.
