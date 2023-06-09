@@ -176,7 +176,7 @@ One other tool that the SDV library provides is an **[evaluation module](https:/
 
 ## Metrics
 
-To study the performance of this library methods (fit - to train - and sample - to create data) we used a Jupyter Notebook on VSCode. The results are the following:
+To study the performance of this library methods (fit - to train - and sample - to create data) we used a Jupyter Notebook on VSCode using a M1 MacBook Air with 16GB of RAM. The results are the following:
 
 | Synthesizer model | Method | Num of rows used/generated | Time |
 | ----------- | ----------- | ----------- | ----------- |
@@ -198,4 +198,4 @@ To study the performance of this library methods (fit - to train - and sample - 
 
 
 ## Notebooks
-There are now 2 notebooks available that test the [single table](2_single_table.ipynb) and [multi table](3_multi_table.ipynb) usage of the SDV library.
+There are 2 notebooks available that showcase the functionality of the SDV library for the [single table](2_single_table.ipynb) and [multi table](3_multi_table.ipynb) workflow.
