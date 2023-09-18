@@ -15,6 +15,8 @@ The code snippet below replicates an external API call designed to retrieve book
 
 Add it to your Books Controller and then create the necessary specs you seem fit to test this method.
 
+> After the inclusion of the provided code snippet, you may need to create migration to ensure its proper functionality. This is necessary as you may not have all the required columns in place.
+
 ```
 # GET /books/ratings
 def refresh_ratings
