@@ -1,5 +1,5 @@
 # Chapter I
-`(avr. time for this chapter: 2 days)`
+`(avr. time for this chapter: 1 to 2 days)`
 
 Now that you have your project being validated automatically through Continuous Integration let's automate his deployment.
 
