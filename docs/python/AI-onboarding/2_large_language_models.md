@@ -29,15 +29,16 @@
 | Course      | [LangChain Chat with Your Data](https://learn.deeplearning.ai/langchain-chat-with-your-data) | <ul><li>Series of 8 videos</li><li>Follows up the first course</li><li>Thoroughly explains how to implement the RAG pipeline using LangChain, offering several different approaches for each of the steps</li><li>Explains how to produce an end-to-end chatbot that can answer questions about a certain dataset</li></ul> |
 | Video      | [Vector Embeddings for Beginners](https://www.youtube.com/watch?v=PR7xz5vQKGg) | <ul><li>35 minute video</li><li>Covers vector embeddings, vector databases and LangChain</li></ul> |
 | Video      | [What is Retrieval-Augmented Generation](https://www.youtube.com/watch?v=T-D1OfcDW1M) | <ul><li>6 minute video by IBM</li><li>Describes some of the challenges presented by LLMs</li><li>Describes what RAG is and how it solves those problems</li></ul> |
+| Video      | [Chatbots with RAG: LangChain Full Walkthrough](https://www.youtube.com/watch?v=LhnCsygAvzY) | <ul><li>35 minute video</li><li>Good explanation of the RAG pipeline</li><li>Explains how to build a RAG chatbot with code</li><li>Requires API keys for OpenAI and Pinecone</li></ul> |
 
 
-<!-- 
+## PandasAI
 
- | Type        | Title       | Comments |
+### Relevant Topics
+- Smart Data Frames & Datalakes
+
+### Resources
+| Type        | Title       | Comments |
 | ----------- | ----------- | ----------- |
-| Course      | []() | <ul><li></li><li></li><li></li></ul> |
-| Course      | []() | <ul><li></li><li></li><li></li></ul> |
-| Course      | []() | <ul><li></li><li></li><li></li></ul> |
-| Course      | []() | <ul><li></li><li></li><li></li></ul> |
- 
- -->
+| Video      | [​PandasAI - Talk to Your Data](https://www.youtube.com/watch?v=mQmRi2QTebM) | <ul><li>27 minute video, presented by the creator of PandasAI</li><li>Includes an explanation of how it works</li><li>Shows several examples of PandasAI’s functionalities</li></ul> |
+| Webpage      | [An Introduction to Pandas AI](https://www.datacamp.com/blog/an-introduction-to-pandas-ai) | <ul><li>Short introduction to PandasAI with examples</li><li>Covers basic aspects like setting up PandasAI, prompting a dataframe for basic answers and charts</li></ul> |
