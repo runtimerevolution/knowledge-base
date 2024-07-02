@@ -64,3 +64,9 @@ end
 Add a validation to the method `publish_if_live` in the Book model which ensures that no publications can be made during the weekends.
 
 Create the necessary specs you seem fit to test this functionality.
+
+## Shoulda Matchers
+
+[Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) provides RSpec- one-liners to test common Rails functionality. It helps to eliminate long line of code to make it more straight forward and readable.
+
+With this in mind use shoulda matchers for any specs you seem fit.
