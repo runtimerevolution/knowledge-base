@@ -3,12 +3,50 @@ site_name: Runtime Revolution Knowledge Base
 theme:
   name: material
   palette:
-    primary: indigo
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
   icon:
     repo: fontawesome/brands/github
+    annotation: material/star-four-points-circle
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.footer
+    - content.tooltips
 
-repo_url: https://github.com/runtimerevolution/knowledge-base.git
+repo_url: https://github.com/runtimerevolution/knowledge-base
 repo_name: runtimerevolution/knowledge-base
+
+extra:
+  social:
+    - icon: fontawesome/brands/x-twitter 
+      name: X
+      link: https://x.com/RuntimeRev
+    - icon: fontawesome/brands/linkedin-in
+      name: Linkedin
+      link: https://www.linkedin.com/company/runtime-revolution
+    - icon: fontawesome/brands/instagram
+      name: Instagram
+      link: https://instagram.com/runtimerevolution
+    - icon: fontawesome/brands/facebook-f
+      name: Facebook
+      link: https://www.facebook.com/RuntimeRevolution
+    - icon: fontawesome/brands/medium
+      name: Blog
+      link: https://revs.runtime-revolution.com/
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -19,10 +57,21 @@ markdown_extensions:
   - footnotes
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
 
 plugins:
   - search
   - mkdocs-jupyter
+  - git-committers:
+      repository: runtimerevolution/knowledge-base
+      branch: main
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
+      enable_creation_date: true

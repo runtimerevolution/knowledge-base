@@ -164,7 +164,7 @@ that the arguments are actually unused.
 
 Use `import` statements for packages and modules only, not for individual
 classes or functions. Note that there is an explicit exemption for imports from
-the [typing module](#typing-imports).
+the typing module.
 
 #### 2.2.1 Definition
 
@@ -202,7 +202,7 @@ Do not use relative names in imports. Even if the module is in the same package,
 use the full package name. This helps prevent unintentionally importing a
 package twice.
 
-Imports from the [typing module](#typing-imports) and the
+Imports from the typing module and the
 [six.moves module](https://six.readthedocs.io/#module-six.moves)
 are exempt from this rule.
 
@@ -386,11 +386,11 @@ Avoid global variables.
 
 While they are technically variables, module-level constants are permitted and
 encouraged. For example: `MAX_HOLY_HANDGRENADE_COUNT = 3`. Constants must be
-named using all caps with underscores. See [Naming](#s3.16-naming) below.
+named using all caps with underscores. See Naming below.
 
 If needed, globals should be declared at the module level and made internal to
 the module by prepending an `_` to the name. External access must be done
-through public module-level functions. See [Naming](#s3.16-naming) below.
+through public module-level functions. See Naming below.
 
 ### 2.6 Nested/Local/Inner Classes and Functions
 
@@ -591,7 +591,7 @@ function may only contain an expression.
 
 Okay to use them for one-liners. If the code inside the lambda function is
 longer than 60-80 chars, it's probably better to define it as a regular
-[nested function](#lexical-scoping).
+nested function.
 
 For common operations like multiplication, use the functions from the `operator`
 module instead of lambda functions. For example, prefer `operator.mul` to
@@ -726,7 +726,7 @@ subclasses.
 
 Use properties in new code to access or set data where you would normally have
 used lightweight accessor or setter methods. Properties should be created with
-the `@property` [decorator](#s2.17-function-and-method-decorators).
+the `@property` decorator.
 
 Inheritance with properties can be non-obvious if the property itself is not
 overridden. Thus one must make sure that accessor methods are called indirectly
@@ -958,7 +958,7 @@ decorator runs (at import time, perhaps from `pydoc` or other tools). A
 decorator that is called with valid parameters should (as much as possible) be
 guaranteed to succeed in all cases.
 
-Decorators are a special case of "top level code" - see [main](#s3.17-main) for
+Decorators are a special case of "top level code" - see main for
 more discussion.
 
 Never use `staticmethod` unless forced to in order to integrate with an API
@@ -1111,7 +1111,7 @@ a = some_func()  # type: SomeType
 
 Type annotations improve the readability and maintainability of your code. The
 type checker will convert many runtime errors to build-time errors, and reduce
-your ability to use [Power Features](#power-features).
+your ability to use Power Features.
 
 #### 2.21.3 Cons
 
@@ -1119,7 +1119,7 @@ You will have to keep the type declarations up to date.
 You might see type errors that you think are
 valid code. Use of a
 [type checker](https://github.com/google/pytype)
-may reduce your ability to use [Power Features](#power-features).
+may reduce your ability to use Power Features.
 
 #### 2.21.4 Decision
 
@@ -1212,7 +1212,7 @@ Yes:  with very_long_first_expression_function() as spam:
 ```
 
 Make note of the indentation of the elements in the line continuation examples
-above; see the [indentation](#s3.4-indentation) section for explanation.
+above; see the indentation section for explanation.
 
 In all other cases where a line exceeds 80 characters, and the
 [yapf](https://github.com/google/yapf/)
@@ -1258,7 +1258,7 @@ Indent your code blocks with *4 spaces*.
 
 Never use tabs or mix tabs and spaces. In cases of implied line continuation,
 you should align wrapped elements either vertically, as per the examples in the
-[line length](#s3.2-line-length) section; or using a hanging indent of 4 spaces,
+line length section; or using a hanging indent of 4 spaces,
 in which case there should be nothing after the open parenthesis or bracket on
 the first line.
 
@@ -1411,7 +1411,7 @@ No:  x<1
 
 Never use spaces around `=` when passing keyword arguments or defining a default
 parameter value, with one exception:
-[when a type annotation is present](#typing-default-values), *do* use spaces
+when a type annotation is present, *do* use spaces
 around the `=` for the default parameter value.
 
 ```python
@@ -1536,7 +1536,7 @@ spaces (be consistent within a file). These sections can be omitted in cases
 where the function's name and signature are informative enough that it can be
 aptly described using a one-line docstring.
 
-[*Args:*](#doc-function-args)
+*Args*
 :   List each parameter by name. A description should follow the name, and be
     separated by a colon followed by either a space or newline. If the
     description is too long to fit on a single 80-character line, use a hanging
@@ -1546,15 +1546,14 @@ aptly described using a one-line docstring.
     function accepts `*foo` (variable length argument lists) and/or `**bar`
     (arbitrary keyword arguments), they should be listed as `*foo` and `**bar`.
 
-[*Returns:* (or *Yields:* for generators)](#doc-function-returns)
+*Returns:* (or *Yields:* for generators)
 :   Describe the type and semantics of the return value. If the function only
     returns None, this section is not required. It may also be omitted if the
     docstring starts with Returns or Yields (e.g. `"""Returns row from Bigtable
     as a tuple of strings."""`) and the opening sentence is sufficient to
     describe return value.
 
-[*Raises:*](#doc-function-raises)
-:   List all exceptions that are relevant to the interface followed by a
+*Raises*:   List all exceptions that are relevant to the interface followed by a
     description. Use a similar exception name + colon + space or newline and
     hanging indent style as described in *Args:*. You should not document
     exceptions that get raised if the API specified in the docstring is violated
@@ -1641,7 +1640,7 @@ def fetch_smalltable_rows(table_handle: smalltable.Table,
 Classes should have a docstring below the class definition describing the class.
 If your class has public attributes, they should be documented here in an
 `Attributes` section and follow the same formatting as a
-[function's `Args`](#doc-function-args) section.
+function's `Args` section.
 
 ```python
 class SampleClass:
@@ -1967,7 +1966,7 @@ TODO comments should not be merged to master, you can use them while developing 
 ### 3.13 Imports formatting
 
 Imports should be on separate lines; there are
-[exceptions for `typing` imports](#typing-imports).
+exceptions for `typing` imports.
 
 E.g.:
 
@@ -1993,7 +1992,7 @@ grouped from most generic to least generic:
     from __future__ import print_function
     ```
 
-    See [above](#from-future-imports) for more information about those.
+    See above for more information about those.
 
 2. Python standard library imports. For example:
 
@@ -2094,7 +2093,7 @@ syntax consistent.
 
 On the other hand, if access is more complex, or the cost of accessing the
 variable is significant, you should use function calls (following the
-[Naming](#s3.16-naming) guidelines) such as `get_foo()` and `set_foo()`. If the
+Naming guidelines) such as `get_foo()` and `set_foo()`. If the
 past behavior allowed access through a property, do not bind the new accessor
 functions to the property. Any code still attempting to access the variable by
 the old method should break visibly so they are made aware of the change in
@@ -2172,19 +2171,19 @@ containing `exec "$0.py" "$@"`.
 
 #### 3.16.4 Guidelines derived from [Guido](https://en.wikipedia.org/wiki/Guido_van_Rossum)'s Recommendations
 
-| Type | Public | Internal |
-|---|---|---|
-| Packages | `lower_with_under` | |
-| Modules | `lower_with_under` | `_lower_with_under` |
-| Classes | `CapWords` | `_CapWords` |
-| Exceptions | `CapWords` | |
-| Functions | `lower_with_under()` | `_lower_with_under()` |
-| Global/Class Constants | `CAPS_WITH_UNDER` | `_CAPS_WITH_UNDER` |
-| Global/Class Variables | `lower_with_under` | `_lower_with_under` |
-| Instance Variables | `lower_with_under` | `_lower_with_under`(protected) |
-| Method Names | `lower_with_under()` | `_lower_with_under()`(protected) |
-| Function/Method Parameters | `lower_with_under` | |
-| Local Variables | `lower_with_under` | |
+| Type                       | Public               | Internal                         |
+|----------------------------|----------------------|----------------------------------|
+| Packages                   | `lower_with_under`   |                                  |
+| Modules                    | `lower_with_under`   | `_lower_with_under`              |
+| Classes                    | `CapWords`           | `_CapWords`                      |
+| Exceptions                 | `CapWords`           |                                  |
+| Functions                  | `lower_with_under()` | `_lower_with_under()`            |
+| Global/Class Constants     | `CAPS_WITH_UNDER`    | `_CAPS_WITH_UNDER`               |
+| Global/Class Variables     | `lower_with_under`   | `_lower_with_under`              |
+| Instance Variables         | `lower_with_under`   | `_lower_with_under`(protected)   |
+| Method Names               | `lower_with_under()` | `_lower_with_under()`(protected) |
+| Function/Method Parameters | `lower_with_under`   |                                  |
+| Local Variables            | `lower_with_under`   |                                  |
 
 ### 3.17 Main
 
@@ -2265,7 +2264,7 @@ the function into smaller and more manageable pieces.
 
 #### 3.19.2 Line Breaking
 
-Try to follow the existing [indentation](#indentation) rules.
+Try to follow the existing indentation rules.
 
 After annotating, many function signatures will become "one parameter per line".
 
@@ -2333,7 +2332,7 @@ def my_method(
 ```
 
 If a single name and type is too long, consider using an
-[alias](#typing-aliases) for the type. The last resort is to break after the
+alias for the type. The last resort is to break after the
 colon and indent by 4.
 
 ```python
@@ -2445,15 +2444,13 @@ ignore`.
 If an internal variable has a type that is hard or impossible to infer, you can
 specify its type in a couple ways.
 
-[*Type Comments:*](#type-comments)
-:   Use a `# type:` comment on the end of the line
+*Type Comments*:   Use a `# type:` comment on the end of the line
 
 ```python
 a = SomeUndecoratedFunction()  # type: Foo
 ```
 
-[*Annotated Assignments*](#annotated-assignments)
-:   Use a colon and type between the variable name and value, as with function
+*Annotated Assignments*:   Use a colon and type between the variable name and value, as with function
     arguments.
 
 ```python
@@ -2564,7 +2561,7 @@ def py3_only(x: Union[bytes, str]) -> Union[bytes, str]:
 
 If all the string types of a function are always the same, for example if the
 return type is the same as the argument type in the code above, use
-[AnyStr](#typing-type-var).
+AnyStr.
 
 Writing it like this will simplify the process of porting the code to Python 3.
 
@@ -2623,7 +2620,7 @@ circular dependencies, various build systems will not let you do so
 because each module has to depend on the other.
 
 Replace modules that create circular dependency imports with `Any`. Set an
-[alias](#typing-aliases) with a meaningful name, and use the real type name from
+alias with a meaningful name, and use the real type name from
 this module (any attribute of Any is Any). Alias definitions should be separated
 from the last import by one line.
 
@@ -2657,7 +2654,7 @@ def get_names(employee_ids: List) -> Dict:
 ```
 
 If the best type parameter for a generic is `Any`, make it explicit, but
-remember that in many cases [`TypeVar`](#typing-type-var) might be more
+remember that in many cases `TypeVar` might be more
 appropriate:
 
 ```python
