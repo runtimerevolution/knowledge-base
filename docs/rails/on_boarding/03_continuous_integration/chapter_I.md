@@ -1,5 +1,5 @@
 # Chapter I
-`(avr. time for this chapter: 1 to 2 days)`
+`(avr. time for this chapter: 2 to 3 days)`
 
 The goal of this exercise is to automatize the process of validating your code, a process known by the name Continuous Integration. Among several other benefits, this will help you reduce the risk of introducing new bugs to your project and allows you to have your project in a state always ready to be deployed.
 
