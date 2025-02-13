@@ -8,9 +8,9 @@ Redux is a global state management library. It has an official integration with 
 
 You can learn more about Redux and how to use it in your web application by watching this [free course and tutorial](https://egghead.io/courses/fundamentals-of-redux-course-from-dan-abramov-bd5cc867){ target=_blank }, made by Dan Abramov himself, the creator of React-Redux.
 
-The key knowledge points to take away from this tutorial are:
+Ideally, with this tutorial, you will be able to:
 
 * Learn how to add proper state management to your React app
 * Dive through reducers and how to manipulate state changes
-* How to propagate the changes to the components
-* Make a "to-do" list app using this library
+* Learn to propagate the changes to the components
+* Build a "to-do" list app using Redux

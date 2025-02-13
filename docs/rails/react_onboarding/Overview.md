@@ -6,11 +6,14 @@ Should you find any error or incorrect information written on these docs, please
 
 You are also welcome to contact us if you have any new resources that you find interesting to share!
 
-- [The Basics](../01_The_Basics/chapter_I)
+- The Basics
     - [Chapter I - An Introduction to JavaScript](../01_The_Basics/chapter_I)
     - [Chapter II - Managing packages and versions](../01_The_Basics/chapter_II)
     - [Chapter III - React for beginners](../01_The_Basics/chapter_III)
-- [Advanced Topics](../02_Advanced_Topics/redux)
-    - [Next.js](../02_Advanced_Topics/next_js)
+- Advanced Topics
     - [React Router](../02_Advanced_Topics/react_router)
     - [Redux](../02_Advanced_Topics/redux)
+    - [Next.js](../02_Advanced_Topics/next_js)
+    - [Authentication](../02_Advanced_Topics/authentication)
+- Practice Exercise
+    - [Build your own app](../03_Practice_Exercise/spotify)

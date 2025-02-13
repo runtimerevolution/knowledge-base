@@ -34,5 +34,7 @@ Once you're done with the official documentation, and if you want to expand your
 
 Your journey through React does not have to end here though! Keep reading the following sections to know more about specific frameworks, packages, tools, etc.
 
-* [Redux](../../02_Advanced_Tools/redux)
-* [React-Router](../../02_Advanced_Tools/react-router)
+* [Redux](../../02_Advanced_Topics/redux)
+* [React-Router](../../02_Advanced_Topics/react_router)
+* [Next.js](../../02_Advanced_Topics/next_js)
+* [Authentication](../../02_Advanced_Topics/authentication)
