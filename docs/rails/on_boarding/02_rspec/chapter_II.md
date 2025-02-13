@@ -5,13 +5,35 @@ While creating specs, you may encounter certain constraints that limit the capab
 
 In this chapter, you'll get to know some gems that can be integrated with RSpec to overcome such limitations.
 
+## Test Doubles
+
+[Test Doubles](https://rspec.info/features/3-13/rspec-mocks/basics/test-doubles/) allow you create mockups of objects to use in your tests.
+
+They are useful as you can define the return value of each method you define, allowing you to get the outcome you desire without calling the original Object, which might have additional logic you do not wish to take into account.
+
+This mockups will raise an error when any method that you did not define is called.
+
+If you have a service which requires multiple parameters or additional context to work properly, you can create a double of it and define exactly what it will return. This is assuming you already have specs for the service in question.
+
+## Partial Doubles
+
+[Partial Doubles](https://rspec.info/features/3-13/rspec-mocks/basics/partial-test-doubles/) allow you to control the behavior of a single method as opposed to making an entire mockup object.
+
+This can be useful when you just need to change the output of a single method.
+
+## Spies
+
+[Spies](https://rspec.info/features/3-13/rspec-mocks/basics/spies/) Are a type of double that can validate if the object received a call to a specific method.
+
+Both Test and Partial doubles can be used as a spy. This allows you to create specs around if certain methods were called.
+
 ## VCR
 
 External API requests can often be a liability for your specs. You can't control the data they provide and any changes made to its response contents may break your specs.
 
 [VCR](https://github.com/vcr/vcr) is a gem which allows you to record HTTP interactions and reply them during future test runs for fast, deterministic, accurate tests.
 
-The code snippet below replicates an external API call designed to retrieve book reviews. 
+The code snippet below replicates an external API call designed to retrieve book reviews.
 
 Add it to your Books Controller and then create the necessary specs you seem fit to test this method.
 
