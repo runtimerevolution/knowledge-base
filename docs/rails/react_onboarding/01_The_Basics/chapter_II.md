@@ -18,6 +18,16 @@ For example, a tool like Node Version Manager (NVM), allows you to download any 
 
 All the information regarding the aforementioned features is available on the NVM official documentation, here: [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm){ target=_blank }.
 
+### Alternatives
+
+Before proceeding with the installation, check if you have any restrictions on which version manager tool you can use. There are some alternatives, which you can find below:
+
+  - [Nodenv](https://github.com/nodenv/nodenv){ target=_blank }
+  - [ASDF](https://asdf-vm.com/){ target=_blank } <sup>[1]</sup>
+  - [N](https://github.com/tj/n){ target=_blank }
+
+<sup>[1]</sup> _**ASDF** can actually manage multiple runtimes, not just Node. If you are already using it in other parts of your project, then you should consider using it over NVM or any of the other tools._
+
 ### Installation
 
 #### Remove existing versions
@@ -67,15 +77,6 @@ To switch between versions, use the command:
 nvm use 18
 ```
 
-### Alternatives
-
-If you have restrictions on which node version manager tool to use, there are other alternatives, that you can find below!
-
-  - [Nodenv](https://github.com/nodenv/nodenv){ target=_blank }
-  - [ASDF](https://asdf-vm.com/){ target=_blank }
-  - [N](https://github.com/tj/n){ target=_blank }
-
-
 ## Node Package Manager
 
 ![](../../../assets/rails/react/npm.png){ width=200 align=right }
@@ -85,6 +86,17 @@ Once you start working on a new JavaScript web application project, you will be 
 There are a few tools that facilitate this work, such as [Node Package Manager (NPM)](https://www.npmjs.com/). When installing a node version on your system, it usually already includes a working version of NPM that you can use!
 
 Essentially, NPM consists of two important components: a __Command Line Interface (CLI)__ to interact with NPM via the terminal, and a __[registry](https://www.npmjs.com/){ target=_blank }__ that you can access, containing an extensive public database of JavaScript packages. You can even publish your own packages there!
+
+### Alternatives
+
+![](../../../assets/rails/react/yarn.png){ width=200 align=right }
+
+Once more, before proceeding, check if you're already using another package manager tool in your project. If so, consider using it over NPM.
+Nevertheless, there is another popular alternative, called __Yarn__.
+The main advantage is that it offers faster installations due to being able to perform parallel installations. On the other hand NPM has better security features in *(most recent versions at least)*.
+You can read more about Yarn by following the link below:
+
+  - [Yarn](https://yarnpkg.com/)
 
 ### Installation
 
@@ -104,11 +116,3 @@ You may also uninstall a package, simply by calling the npm uninstall command fo
 ```
 npm uninstall <package name>
 ```
-
-### Alternatives
-
-![](../../../assets/rails/react/yarn.png){ width=200 align=right }
-
-Apart from NPM, there is another very popular alternative for a package manager, called __Yarn__. You can read more about it by clicking the link below:
-
-  - [Yarn](https://yarnpkg.com/)
