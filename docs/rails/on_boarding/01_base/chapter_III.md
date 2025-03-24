@@ -12,9 +12,11 @@ These topics are still the most basic so you don't need to build or model a very
 
 # Let's do some basic code
 
-> create a simple rails application MVC
-> open a git repository and give access to your tutor
-> IF you have time deploy it, you can choose the platform (render.com, heroku.com)
+> Create a simple Rails application MVC, preferably with Postgres as the database
+
+> Open a Git repository and give access to your tutor
+
+> If you have time deploy it, you can choose the platform (render.com, heroku.com)
 
 Let's build an application from scratch. The application will have as its theme the sale of ebooks online. A virtual store where you will have sellers and buyers. You won't have to implement the cart's logic, but some functionalities related to some actions that are performed when buying an item.
 
