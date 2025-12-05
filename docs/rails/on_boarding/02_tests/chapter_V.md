@@ -1,116 +1,138 @@
 # Chapter V - Shared Examples and Shared Contexts
 `(avr. time for this chapter: 1 day)`
 
-As your test suite grows, you'll notice patterns of repeated test code. RSpec provides powerful mechanisms for sharing test code: shared examples for reusable test cases and shared contexts for reusable setup. Using these features keeps your tests DRY and maintainable.
+As your test suite grows, you'll notice patterns of repeated test code. Both User and Ebook have status functionality. Both need authentication in controller tests. RSpec provides powerful mechanisms for sharing test code: shared examples for reusable test cases and shared contexts for reusable setup.
 
-In this chapter, you will learn how to identify opportunities for sharing test code and implement shared examples and contexts effectively.
-
-***So, let's share and reuse***
-
-# Shared Examples
+In this chapter, you will learn how to identify opportunities for sharing test code and implement shared examples and contexts for your ebook application.
 
 ## What are Shared Examples?
 
-Shared examples are reusable groups of tests that can be included in multiple spec files. They're perfect for testing common behavior across different classes or contexts.
+Shared examples are reusable groups of tests that can be included in multiple spec files. They're perfect for testing common behavior—like the status functionality shared by User and Ebook models.
 
-> Reference: https://rspec.info/features/3-12/rspec-core/example-groups/shared-examples/
+> Reference: [RSpec Shared Examples](https://rspec.info/features/3-12/rspec-core/example-groups/shared-examples/)
 
 ## Creating Shared Examples
 
 ### Steps to implement:
 
-1. Create a shared examples file in `spec/support/shared_examples/`:
+1. Create a shared example for status behavior (shared by User and Ebook):
    ```ruby
    # spec/support/shared_examples/statusable.rb
-   RSpec.shared_examples "a statusable model" do
+   RSpec.shared_examples "a model with status" do
+     it "has a status attribute" do
+       expect(subject).to respond_to(:status)
+     end
+
      it "has a default status" do
        expect(subject.status).to be_present
      end
-
-     it "can change status" do
-       subject.status = :active
-       expect(subject.status).to eq("active")
-     end
    end
    ```
 
-2. Include shared examples in your specs:
+2. Include shared examples in your model specs:
    ```ruby
+   # spec/models/user_spec.rb
    describe User do
-     it_behaves_like "a statusable model"
+     subject { create(:user) }
+     it_behaves_like "a model with status"
    end
 
+   # spec/models/ebook_spec.rb
    describe Ebook do
-     it_behaves_like "a statusable model"
+     subject { create(:ebook) }
+     it_behaves_like "a model with status"
    end
    ```
 
-3. Configure RSpec to load support files:
-   - In `spec/rails_helper.rb`, ensure support files are required:
+3. Configure RSpec to load support files in `spec/rails_helper.rb`:
    ```ruby
    Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
    ```
 
-## Passing Parameters to Shared Examples
+## Shared Examples for Ebook Status Transitions
 
 ### Steps to implement:
 
-1. Pass a block to shared examples:
+1. Create shared examples for publishable models:
    ```ruby
-   RSpec.shared_examples "requires authentication" do |action|
+   # spec/support/shared_examples/publishable.rb
+   RSpec.shared_examples "a publishable resource" do
+     describe "status transitions" do
+       context "when draft" do
+         before { subject.status = :draft }
+
+         it "can be submitted for review" do
+           subject.submit_for_review!
+           expect(subject.status).to eq("pending")
+         end
+       end
+
+       context "when pending" do
+         before { subject.status = :pending }
+
+         it "can be published" do
+           subject.publish!
+           expect(subject.status).to eq("live")
+         end
+       end
+     end
+   end
+   ```
+
+2. Use in Ebook spec:
+   ```ruby
+   describe Ebook do
+     subject { create(:ebook, :draft) }
+     it_behaves_like "a publishable resource"
+   end
+   ```
+
+## Shared Examples for Authentication
+
+### Steps to implement:
+
+1. Create shared examples for protected controller actions:
+   ```ruby
+   # spec/support/shared_examples/requires_authentication.rb
+   RSpec.shared_examples "requires authentication" do
      it "redirects to login when not authenticated" do
-       send(action)
        expect(response).to redirect_to(login_path)
      end
+
+     it "returns unauthorized status for API requests" do
+       # If you have API endpoints
+     end
    end
    ```
 
-2. Use the block parameter:
+2. Use in controller specs:
    ```ruby
    describe EbooksController do
-     it_behaves_like "requires authentication", :get_index
+     describe "GET #new" do
+       before { get :new }
+       it_behaves_like "requires authentication"
+     end
 
-     def get_index
-       get :index
+     describe "POST #create" do
+       before { post :create, params: { ebook: attributes_for(:ebook) } }
+       it_behaves_like "requires authentication"
      end
    end
    ```
 
-3. Use `let` definitions from the including context:
-   ```ruby
-   RSpec.shared_examples "a soft deletable" do
-     it "marks as deleted instead of destroying" do
-       subject.soft_delete
-       expect(subject.deleted_at).to be_present
-     end
-   end
-   ```
+## Shared Contexts
 
-## Alternative Inclusion Syntax
+Shared contexts are reusable setup blocks. They define `let` declarations, `before` hooks, and helper methods.
 
-### Steps to implement:
-
-1. Use `include_examples` to include without a nested group
-2. Use `it_should_behave_like` as an alias for `it_behaves_like`
-3. Understand the difference between `include_examples` and `it_behaves_like`:
-   - `it_behaves_like` creates a nested context
-   - `include_examples` includes directly in current context
-
-# Shared Contexts
-
-## What are Shared Contexts?
-
-Shared contexts are reusable setup blocks. They define `let` declarations, `before` hooks, and helper methods that can be included in multiple specs.
-
-> Reference: https://rspec.info/features/3-12/rspec-core/example-groups/shared-context/
+> Reference: [RSpec Shared Context](https://rspec.info/features/3-12/rspec-core/example-groups/shared-context/)
 
 ## Creating Shared Contexts
 
 ### Steps to implement:
 
-1. Create a shared context file in `spec/support/shared_contexts/`:
+1. Create an authenticated user context:
    ```ruby
-   # spec/support/shared_contexts/authenticated_user.rb
+   # spec/support/shared_contexts/authentication.rb
    RSpec.shared_context "authenticated user" do
      let(:current_user) { create(:user) }
 
@@ -118,56 +140,79 @@ Shared contexts are reusable setup blocks. They define `let` declarations, `befo
        sign_in(current_user)
      end
    end
+
+   RSpec.shared_context "authenticated seller" do
+     let(:current_user) { create(:user, :seller) }
+     let!(:seller_ebooks) { create_list(:ebook, 3, seller: current_user) }
+
+     before do
+       sign_in(current_user)
+     end
+   end
    ```
 
-2. Include shared context in specs:
+2. Include shared context in controller specs:
    ```ruby
    describe EbooksController do
-     include_context "authenticated user"
+     include_context "authenticated seller"
 
      describe "GET #index" do
-       it "returns success" do
+       it "returns seller's ebooks" do
          get :index
-         expect(response).to be_successful
+         expect(assigns(:ebooks)).to match_array(seller_ebooks)
        end
      end
    end
    ```
 
-## Common Shared Context Patterns
+## Common Shared Contexts for Ebook Application
 
 ### Steps to implement:
 
-1. Create an authentication context:
-   - Set up a logged-in user
-   - Include helper methods for different user roles
+1. Create a context with published ebooks:
+   ```ruby
+   # spec/support/shared_contexts/ebook_data.rb
+   RSpec.shared_context "with published ebooks" do
+     let(:seller) { create(:user) }
+     let!(:published_ebooks) { create_list(:ebook, 5, :published, seller: seller) }
+     let!(:draft_ebooks) { create_list(:ebook, 2, :draft, seller: seller) }
+   end
+   ```
 
-2. Create a time-frozen context:
+2. Create a context for purchase testing:
+   ```ruby
+   RSpec.shared_context "with purchase setup" do
+     let(:seller) { create(:user) }
+     let(:buyer) { create(:user) }
+     let(:ebook) { create(:ebook, :published, seller: seller, price: 29.99) }
+
+     before do
+       sign_in(buyer)
+     end
+   end
+   ```
+
+3. Create a frozen time context for testing time-sensitive features:
    ```ruby
    RSpec.shared_context "frozen time" do
-     let(:frozen_time) { Time.zone.parse("2024-01-15 10:00:00") }
+     let(:frozen_time) { Time.zone.parse("2024-06-15 10:00:00") }
 
      before { travel_to(frozen_time) }
      after { travel_back }
    end
    ```
 
-3. Create a database setup context:
-   ```ruby
-   RSpec.shared_context "with seed data" do
-     let!(:admin) { create(:user, :admin) }
-     let!(:categories) { create_list(:category, 5) }
-   end
-   ```
-
 ## Metadata-based Inclusion
+
+Automatically include contexts using RSpec metadata tags.
 
 ### Steps to implement:
 
 1. Define shared context with metadata:
    ```ruby
    RSpec.shared_context "authenticated user", :authenticated do
-     # ... setup code
+     let(:current_user) { create(:user) }
+     before { sign_in(current_user) }
    end
    ```
 
@@ -182,6 +227,13 @@ Shared contexts are reusable setup blocks. They define `let` declarations, `befo
    ```ruby
    describe EbooksController, :authenticated do
      # authenticated user context is automatically included
+
+     describe "GET #new" do
+       it "returns success" do
+         get :new
+         expect(response).to be_successful
+       end
+     end
    end
    ```
 
@@ -189,44 +241,58 @@ Shared contexts are reusable setup blocks. They define `let` declarations, `befo
 
 ### Steps to implement:
 
-1. Organize shared examples by behavior:
-   - `spec/support/shared_examples/models/` - model behaviors
-   - `spec/support/shared_examples/controllers/` - controller behaviors
+1. Organize shared examples by domain:
+   ```
+   spec/support/shared_examples/
+   ├── models/
+   │   ├── statusable.rb
+   │   └── publishable.rb
+   └── controllers/
+       └── requires_authentication.rb
+   ```
 
 2. Organize shared contexts by purpose:
-   - `spec/support/shared_contexts/authentication.rb`
-   - `spec/support/shared_contexts/time_helpers.rb`
+   ```
+   spec/support/shared_contexts/
+   ├── authentication.rb
+   ├── ebook_data.rb
+   └── time_helpers.rb
+   ```
 
-3. Keep shared examples focused:
-   - One behavior per shared example group
-   - Use descriptive names
-
-4. Document parameters and requirements:
-   - Comment what `let` definitions are expected
-   - Document required subject setup
+3. Document expected setup:
+   ```ruby
+   # Requires subject to be a model with status attribute
+   # subject { create(:ebook) }
+   RSpec.shared_examples "a model with status" do
+     # ...
+   end
+   ```
 
 ## Exercise
 
-> Apply these concepts to the ebook application
+Apply these concepts to your ebook application:
 
-1. Create shared examples:
+1. Create shared examples for your models:
+   - `"a model with status"` - test status attribute for User and Ebook
+   - `"a publishable resource"` - test status transitions for Ebook
    - `"a model with timestamps"` - test created_at and updated_at
-   - `"a soft deletable model"` - if you implemented soft delete
-   - `"a model with status"` - for User and Ebook status behavior
-   - `"a controller requiring authentication"` - for protected actions
 
-2. Create shared contexts:
+2. Create shared examples for controllers:
+   - `"requires authentication"` - test redirect for unauthenticated users
+   - `"requires seller ownership"` - test that users can only edit their own ebooks
+
+3. Create shared contexts:
    - `"authenticated user"` - logged-in user setup
-   - `"authenticated seller"` - user with seller role
-   - `"with published ebooks"` - seed data with published ebooks
+   - `"authenticated seller"` - seller with existing ebooks
+   - `"with published ebooks"` - seed data for listing tests
+   - `"with purchase setup"` - buyer, seller, and ebook ready for purchase tests
 
-3. Refactor existing tests:
-   - Identify repeated setup code across specs
+4. Refactor existing tests:
+   - Identify repeated `before` blocks across specs
    - Extract into shared contexts
-   - Identify common assertions across models
+   - Identify common test patterns (status, authentication)
    - Extract into shared examples
 
-4. Use metadata for automatic inclusion:
-   - Tag controller specs that need authentication
+5. Use metadata for cleaner specs:
+   - Tag controller specs with `:authenticated`
    - Configure automatic context inclusion
-

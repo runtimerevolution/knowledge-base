@@ -56,3 +56,45 @@ Build an online ebook store application. The platform will have sellers and buye
 - Visitor information (IP, browser, location, etc.)
 
 > Note: You may define different metrics based on your implementation approach.
+
+### Database Transactions (ACID Properties)
+
+When processing a purchase, multiple database operations must succeed or fail together. This is where database transactions become essential to maintain data integrity.
+
+#### Understanding ACID Properties:
+
+- **Atomicity** - All operations succeed or all fail (no partial updates)
+- **Consistency** - Database moves from one valid state to another
+- **Isolation** - Concurrent transactions don't interfere with each other
+- **Durability** - Committed changes persist even after system failure
+
+#### Steps to implement:
+
+1. Wrap the purchase flow in a transaction:
+   - Create the Purchase record
+   - Update the ebook's purchase count
+   - Update the seller's earnings/balance
+   - All operations must succeed, or none should persist
+
+2. Handle transaction failures:
+   - Use `ActiveRecord::Base.transaction` block
+   - Raise exceptions to trigger rollback
+   - Implement proper error handling and user feedback
+
+3. Test the transaction behavior:
+   - Verify that if one operation fails, all changes are rolled back
+   - Simulate failures (e.g., validation errors) and confirm no partial data exists
+
+> Reference: [Rails Active Record Transactions](https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html)
+
+#### Scenario to implement:
+
+When a buyer purchases an ebook, the following must happen atomically:
+
+1. Validate the buyer has sufficient balance (if implementing wallet)
+2. Create a `Purchase` record with buyer, ebook, and amount
+3. Increment the ebook's `purchase_count`
+4. Credit the seller's balance with the commission (10%)
+5. Send notification emails (outside the transaction)
+
+If any step fails (e.g., ebook becomes unavailable, validation error), the entire operation should roll back, and the user should see an appropriate error message.
