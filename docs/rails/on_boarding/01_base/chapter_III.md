@@ -1,35 +1,58 @@
-
-# Chapter III
+# Chapter III - Practical Exercise: Ebook Store (Part 1)
 `(avr. time for this chapter: 3 to 4 days)`
 
-Moving on from the theoretical part, we move on to the practical part.
+Moving from theory to practice, this chapter presents a hands-on exercise where you will build a Rails application from scratch.
 
-You'll find several topics listed below, with very little detail. The details do not exist on purpose, it is in everyone's interest to understand how you can infer, through a practical case, the same thing that would happen in real life with a client. As an engineer you know how to think, and if you have doubts you can always do what you would do in a real project, discuss ideas. You can also design your solution before trying it out.
+The requirements listed below are intentionally generic. This approach mirrors real-world scenarios where client requirements are often open to interpretation. As an engineer, you are expected to analyze, design, and implement solutions based on the given specifications. If you have questions or need clarification, discuss ideas with your tutor—just as you would in a professional environment.
 
-These topics are still the most basic so you don't need to build or model a very elaborate system, if you notice they are linked to the course you just saw in the previous chapter. 
+These topics align with what you learned in the previous chapter, so the implementation should feel familiar.
 
-***So, let's code***
+## Project Setup
 
-# Let's do some basic code
+### Steps to implement:
 
-> create a simple rails application MVC
-> open a git repository and give access to your tutor
-> IF you have time deploy it, you can choose the platform (render.com, heroku.com)
+1. Create a new Rails application using MVC architecture
+2. Initialize a Git repository and grant access to your tutor
+3. (Optional) Deploy the application to a platform of your choice (e.g., [Render](https://render.com), [Heroku](https://heroku.com))
 
-Let's build an application from scratch. The application will have as its theme the sale of ebooks online. A virtual store where you will have sellers and buyers. You won't have to implement the cart's logic, but some functionalities related to some actions that are performed when buying an item.
+## Application Requirements
 
-As previously mentioned, all the points below are generic, it is up to the developer who develops to build an architecture consistent with the proposed objective
+Build an online ebook store application. The platform will have sellers and buyers. You will not implement shopping cart logic, but you will implement functionalities related to purchasing actions.
 
- - List item (ebooks)
- - Add navigation menu with ebook and users
- - Create CRUD for the user (seller or a buyer)
- - Update Status of the user (enable or disable) 
- - Create CRUD for Ebooks
- - Update Status for the Ebook (Draft, Pending, Live)
- - Store PDF with the preview draft for download
+### Core Features
 
-> the emails referenced below do not need to be sent, it is only necessary to create the notification logic, or you can use **mailcatcher.me**
+#### User Management
 
-- buy ebook (**don't apply cart logic**), 
-	- the buy button should trigger 2 actions (send mail to the user with the fee he get from the bought ebook 10% from the book price, send an email with all statistics from that ebook (how many times the ebook was bought, how many times the draft pdf has been viewed, how many times ebook has been seen, IP, browser, location, etc ... )) **note: you can find different metrics and not use these**
-	- Register the book purchase
+- Create CRUD operations for Users (can be either seller or buyer)
+- Implement user status management (enable/disable)
+
+#### Ebook Management
+
+- Create CRUD operations for Ebooks
+- Implement status workflow for Ebooks (Draft → Pending → Live)
+- Store PDF preview drafts available for download
+
+#### Navigation
+
+- Add a navigation menu with links to Ebooks and Users sections
+
+### Purchase Functionality
+
+> Note: For email functionality, you do not need to send actual emails. Create the notification logic only, or use [Mailcatcher](https://mailcatcher.me) for local testing.
+
+#### Steps to implement:
+
+1. Implement an ebook purchase action (without cart logic)
+2. The purchase button should trigger the following actions:
+   - Send an email to the seller with their commission (10% of the book price)
+   - Send an email with ebook statistics (examples below)
+   - Register the purchase in the database
+
+#### Suggested Statistics to Track:
+
+- Number of times the ebook was purchased
+- Number of times the preview PDF was viewed
+- Number of times the ebook page was visited
+- Visitor information (IP, browser, location, etc.)
+
+> Note: You may define different metrics based on your implementation approach.

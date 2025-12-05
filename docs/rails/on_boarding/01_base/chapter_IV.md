@@ -1,26 +1,50 @@
-
-# Chapter IV
+# Chapter IV - Practical Exercise: Ebook Store (Part 2)
 `(avr. time for this chapter: 3 days)`
 
-This will be the last topic that closes onBoarding.
-The topics are broader, which will force you to think better before starting to implement. Following the previous exercise, here's your challenge
+This chapter concludes the base onboarding with advanced features for your ebook store application. The topics are broader and will require more careful planning before implementation.
 
-***So, let's finish this***
+Continue building upon the application from Chapter III.
 
-# Let's do some basic code
+## Project Finalization
 
-> commit your pull request and in the end merge all the code into (main/master)
-> IF you have time deploy it, you can choose the platform (render.com, heroku.com, etc ...)
+### Steps to implement:
 
-- Store user image profile
-- Store ebook image cover profile
-- Implement Authentication  **without devise**. sign up and sign in
-- on Successfully Login redirect to same point where you were and not the root url
-- Force to update password every 6 months
-- send an welcome mail when a new user is registered
-- Implement a Tags System
-	-	Filter Tags on ebooks 
-	-	Filter ebooks by user
+1. Create pull requests for your features
+2. Merge all completed code into the main branch
+3. (Optional) Deploy the final application to a platform of your choice (e.g., [Render](https://render.com), [Heroku](https://heroku.com))
 
-> when a user has no articles it will not show on filters list
-> the emails referenced below do not need to be sent, it is only necessary to create the notification logic, or you can use **mailcatcher.me**
+## Advanced Features
+
+### Image Management
+
+- Implement user profile image upload and storage
+- Implement ebook cover image upload and storage
+
+### Authentication System
+
+Implement a custom authentication system **without using Devise**.
+
+#### Steps to implement:
+
+1. Create user registration (sign up) functionality
+2. Create user login (sign in) functionality
+3. Implement `sign_in` and `sign_out` helper methods
+4. On successful login, redirect users to their previous location (not the root URL)
+
+### Password Management
+
+- Create a Rake task that forces password updates every 6 months
+- Send a welcome email when a new user registers
+
+> Note: For email functionality, create the notification logic only, or use [Mailcatcher](https://mailcatcher.me) for local testing.
+
+### Tags System
+
+#### Steps to implement:
+
+1. Implement a tagging system for ebooks
+2. Add filtering functionality:
+   - Filter ebooks by tags
+   - Filter ebooks by user (seller)
+
+> Note: Users with no ebooks should not appear in the filter list.

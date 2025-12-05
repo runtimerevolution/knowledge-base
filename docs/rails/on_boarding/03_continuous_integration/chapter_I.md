@@ -1,39 +1,71 @@
-# Chapter I
+# Chapter I - Continuous Integration
 `(avr. time for this chapter: 1 to 2 days)`
 
-The goal of this exercise is to automatize the process of validating your code, a process known by the name Continuous Integration. Among several other benefits, this will help you reduce the risk of introducing new bugs to your project and allows you to have your project in a state always ready to be deployed.
+Continuous Integration (CI) is the practice of automating the validation of your code. This process helps reduce the risk of introducing bugs and ensures your project remains in a deployable state at all times.
 
-To do this we suggest you use one of the following three platforms:
+In this chapter, you will set up an automated pipeline that validates your code on every push to the repository.
 
-- [Github Actions](https://docs.github.com/en/actions)
-- [Bibucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/)
-- [GitLab](https://docs.gitlab.com/ee/ci/)
+## Platform Selection
 
-***Let's dive in to***
+Choose one of the following CI/CD platforms for this exercise:
 
-Steps to take into consideration for this exercise::
+- [GitHub Actions](https://docs.github.com/en/actions)
+- [Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/)
+- [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
 
-- Project setup
-- Run tests
-- Code styling
-- Test coverage
+## Pipeline Components
 
-## Project setup
+Your CI pipeline should include the following stages:
 
-In this step, you should take into consideration the version of your tools.
+### 1. Project Setup
 
-For Bitbucket Pipelines and Gitlab, you can use an official docker image from [Docker Hub](https://hub.docker.com) with the required ruby version. But nothing stops you from using a custom docker image.
+Configure the environment with the correct tool versions.
 
-For Github Actions the strategy is a bit different. Here you choose the system (Linux, Windows, or macOS), and instead of docker images, you rely on actions for the setup. Ruby provides an [official action](https://github.com/ruby/setup-ruby) to perform the setup.
+#### Steps to implement:
 
-## Run tests
+**For Bitbucket Pipelines and GitLab:**
 
-As you keep adding new features it is important to write tests to keep validating your solution. Running these tests on the CI will guarantee you never forget to check your code. At this point of the onboarding, you should already have some Rspec tests you can use.
+1. Use an official Docker image from [Docker Hub](https://hub.docker.com) with the required Ruby version
+2. Alternatively, create and use a custom Docker image
 
-## Code styling
+**For GitHub Actions:**
 
-For consistency and better reading of your code now and in the future it is important to keep using the same code styling. Adding linting to your CI process will force you to respect these rules. The most common gem used for this process is [Rubocop](https://docs.rubocop.org/rubocop/1.18/installation.html).
+1. Choose the operating system (Linux, Windows, or macOS)
+2. Use the official [Ruby setup action](https://github.com/ruby/setup-ruby) to configure the Ruby environment
 
-## Test coverage
+### 2. Run Tests
 
-Test coverage is another topic you can add to your CI process which will determine whether your test cases cover the application code and how much code is exercised when running those test cases. This comes in handy to let developers know if more tests are needed to have a robust application. The most common gem used for this process is [simplecov](https://github.com/simplecov-ruby/simplecov). Notice that this gem allows you to combine it with other formatters for different output files. For example, you can combine with [simplecov-json](https://github.com/vicentllongo/simplecov-json) for easier file handling of the results. Depending on the service you choose you may need to install packages to read json if you choose this path. The most common package to parse json files from the command-line is [./jq](https://jqlang.github.io/jq/).
+Automated tests ensure your application behaves as expected as you add new features.
+
+#### Steps to implement:
+
+1. Configure the pipeline to run your RSpec test suite
+2. Ensure all tests pass before proceeding to subsequent stages
+3. Configure test output for visibility in the CI dashboard
+
+> Note: At this point in the onboarding, you should have RSpec tests from the testing chapters.
+
+### 3. Code Styling (Linting)
+
+Consistent code styling improves readability and maintainability across the team.
+
+#### Steps to implement:
+
+1. Add [RuboCop](https://docs.rubocop.org/rubocop/1.18/installation.html) to your project
+2. Configure RuboCop rules according to your team's standards
+3. Add a linting step to your CI pipeline
+4. Ensure the pipeline fails if linting errors are detected
+
+### 4. Test Coverage
+
+Test coverage metrics help identify areas of your codebase that need additional testing.
+
+#### Steps to implement:
+
+1. Add [SimpleCov](https://github.com/simplecov-ruby/simplecov) to your project
+2. Configure SimpleCov to generate coverage reports
+3. (Optional) Use [simplecov-json](https://github.com/vicentllongo/simplecov-json) for machine-readable output
+4. Add coverage reporting to your CI pipeline
+5. (Optional) Set minimum coverage thresholds
+
+> Note: If parsing JSON output from the command line, consider using [jq](https://jqlang.github.io/jq/).

@@ -1,51 +1,68 @@
-# Chapter I
+# Chapter I - Introduction to Ruby
 `(avr. time for this chapter: 1 day)`
 
-Hi. 
-Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms. It was designed with an emphasis on programming productivity and simplicity. In Ruby, everything is an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.
+Ruby is an interpreted, high-level, general-purpose programming language that supports multiple programming paradigms. Designed with an emphasis on programming productivity and simplicity, Ruby treats everything as an object, including primitive data types. It was developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.
 
-Ruby is dynamically typed and uses garbage collection and just-in-time compilation. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. 
+Ruby is dynamically typed and uses garbage collection and just-in-time compilation. It supports procedural, object-oriented, and functional programming paradigms.
 
-In this chapter the objective is to look at the world of ruby, which will serve as a basis for the next chapters where we will be delving into one of the frameworks that work with ruby, Rails.
+In this chapter, the objective is to explore the fundamentals of Ruby, which will serve as the foundation for the next chapters where you will delve into Rails, one of the most popular frameworks built with Ruby.
 
-The idea is to familiarize yourself with the basics.
+## Ruby in Twenty Minutes
 
-***So, let's code***
+A concise Ruby tutorial that should take no more than 20 minutes to complete.
 
+### Steps to implement:
 
-# Let's Start
+1. Ensure Ruby is installed on your system
+2. Complete the quick start tutorial
+3. Experiment with the Interactive Ruby Shell (IRB)
 
-## Ruby in Twenty Minutes (quick start)
+> Reference: [Ruby Quick Start](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-This is a small Ruby tutorial that should take no more than 20 minutes to complete: [https://www.ruby-lang.org/en/documentation/quickstart/](https://www.ruby-lang.org/en/documentation/quickstart/) 
+> Installation Guide: [Ruby Installation](https://www.ruby-lang.org/en/documentation/installation/)
 
-It makes the assumption that you already have Ruby installed. If not, checkout this link: [https://www.ruby-lang.org/en/documentation/installation/] (https://www.ruby-lang.org/en/documentation/installation/)
+## Ruby Koans
 
-## Ruby Koans 
+The Koans guide you along the path to enlightenment in order to learn Ruby. The goal is to understand the Ruby language, syntax, structure, and common functions and libraries through test-driven exercises.
 
-The Koans walk you along the path to enlightenment in order to learn Ruby. The goal is to learn the Ruby language, syntax, structure, and some common functions and libraries.  Testing is not just something we pay lip service to, but something we live. It is essential in your quest to learn and do great things in the language.
-http://rubykoans.com
+### Steps to implement:
 
--   **Recommended Koans**:
-	-   About_arrays.rb
-	-   About_blocks.rb
-	-   About_classes.rb
-	-   About_control_statements.rb
-	-   About_hashes.rb
-	-   About_iteration.rb
-	-   About_methods.rb
-	-   About_strings.rb
-	-   about_symbols.rb
+1. Clone or download the Ruby Koans repository
+2. Run the koans and fix each failing test
+3. Focus on the recommended koans listed below
+
+> Reference: [Ruby Koans](http://rubykoans.com)
+
+### Recommended Koans:
+
+- `about_arrays.rb`
+- `about_blocks.rb`
+- `about_classes.rb`
+- `about_control_statements.rb`
+- `about_hashes.rb`
+- `about_iteration.rb`
+- `about_methods.rb`
+- `about_strings.rb`
+- `about_symbols.rb`
 
 ## Ruby Tutorial
 
-This tutorial has been prepared for beginners to help them understand the basic to advanced concepts related to Ruby Scripting languages.
-https://www.tutorialspoint.com/ruby/index.htm 
+This tutorial covers basic to advanced concepts related to Ruby scripting.
 
--   Ruby - Classes and Objects
--   Ruby - Variables
--   Ruby - Operators
--   Ruby - Methods
--   Ruby - Blocks (same as Koans)
--   Ruby - Modules
--   Ruby - Exceptions
+### Steps to implement:
+
+1. Read and practice the following topics
+2. Write small code snippets to reinforce each concept
+3. Understand how these concepts apply to real-world scenarios
+
+> Reference: [TutorialsPoint Ruby](https://www.tutorialspoint.com/ruby/index.htm)
+
+### Topics to cover:
+
+- Ruby - Classes and Objects
+- Ruby - Variables
+- Ruby - Operators
+- Ruby - Methods
+- Ruby - Blocks
+- Ruby - Modules
+- Ruby - Exceptions
