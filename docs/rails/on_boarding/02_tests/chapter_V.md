@@ -210,7 +210,7 @@ Automatically include contexts using RSpec metadata tags.
 
 1. Define shared context with metadata:
    ```ruby
-   RSpec.shared_context "authenticated user", :authenticated do
+   RSpec.shared_context "authenticated user" do
      let(:current_user) { create(:user) }
      before { sign_in(current_user) }
    end
