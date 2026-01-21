@@ -1,4 +1,4 @@
-# Chapter IV - Practical Exercise: Ebook Store (Part 2)
+# Chapter V - Practical Exercise: Ebook Store (Part 2)
 `(avr. time for this chapter: 3 days)`
 
 This chapter concludes the base onboarding with advanced features for your ebook store application. The topics are broader and will require more careful planning before implementation.
