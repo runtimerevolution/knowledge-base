@@ -1,4 +1,4 @@
-# Chapter IV - Background Jobs and Process Management
+# Chapter V - Background Jobs and Process Management with Sidekiq
 `(avr. time for this chapter: 1 day)`
 
 This chapter introduces background job processing with Sidekiq and essential process management skills. You will learn how to handle long-running tasks asynchronously and manage system processes effectively.
