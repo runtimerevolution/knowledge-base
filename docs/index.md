@@ -4,7 +4,9 @@ Welcome to your go-to resource hub at Runtime Revolution! This is the place for 
 
 - [Node.js](./node/index.md)
 - [Python](./python/faq.md)
+- [QA Engineer](./qa_engineer/index.md)
 - [Rails](./rails/index.md)
+- [React](./react/index.md)
 
 ## Contribute to the Knowledge Base
 
