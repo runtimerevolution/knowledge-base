@@ -51,7 +51,7 @@ Consistent code styling improves readability and maintainability across the team
 
 #### Steps to implement:
 
-1. Add [RuboCop](https://docs.rubocop.org/rubocop/1.18/installation.html) to your project
+1. Add [RuboCop](https://docs.rubocop.org/rubocop/installation.html) to your project
 2. Configure RuboCop rules according to your team's standards
 3. Add a linting step to your CI pipeline
 4. Ensure the pipeline fails if linting errors are detected
